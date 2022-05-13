@@ -1,6 +1,7 @@
 package com.example.co.mealapp.Api
 
 import com.example.co.mealapp.dataModels.Categories
+import dagger.Provides
 import retrofit2.Response
 import retrofit2.http.GET
 

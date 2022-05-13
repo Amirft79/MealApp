@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/search_meal"
+        android:id="@+id/Search_Result_Fragment"
+        android:icon="@drawable/ic_baseline_search_24">
+    </item>
+    <item
+        android:title="@string/meal_category"
+        android:id="@+id/Main_Fragment"
+        android:icon="@drawable/ic_baseline_fastfood_24">
+    </item>
+
+</menu>

@@ -8,6 +8,7 @@ import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.*
 import javax.inject.Inject
+import javax.inject.Singleton
 
 @ActivityRetainedScoped
 class MainRepository  @Inject constructor(private val apiService:Api){

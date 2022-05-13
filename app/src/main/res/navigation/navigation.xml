@@ -2,4 +2,36 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/Main_Search_Fragment">
+    <fragment
+        android:id="@+id/Main_Search_Fragment"
+        android:name="com.example.co.mealapp.ui.MainSearchFragment"
+        android:label="fragment_main2"
+        tools:layout="@layout/main_search_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+        <action
+            android:id="@+id/action_Main_Search_Fragment_to_categoriesListFragment"
+            app:destination="@id/categoriesListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.example.co.mealapp.ui.SearchResultFragment"
+        android:label="fragment_search_result"
+        tools:layout="@layout/fragment_search_result" >
+        <action
+            android:id="@+id/action_searchResultFragment_to_mainFragment"
+            app:destination="@id/Main_Search_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesListFragment"
+        android:name="com.example.co.mealapp.ui.CategoriesListFragment"
+        android:label="fragment_categories__list_"
+        tools:layout="@layout/fragment_categories__list_" >
+        <action
+            android:id="@+id/action_categoriesListFragment_to_Main_Search_Fragment"
+            app:destination="@id/Main_Search_Fragment" />
+    </fragment>
+</navigation>
