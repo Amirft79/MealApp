@@ -25,4 +25,15 @@ class MainRepository  @Inject constructor(private val apiService:Api){
     }
 
 
+    fun getSearchedMeals(searchedText:String)= liveData(Dispatchers.IO){
+             emit(com.example.co.mealapp.Utils.Resource.loading(null))
+        try {
+            val data =apiService.getMealsSearchedList(searchedText).body()?.mealsList
+            emit(com.example.co.mealapp.Utils.Resource.success(data))
+        }catch (exception:Exception){
+            com.example.co.mealapp.Utils.Resource.failed(null,exception.message.toString())
+        }
+    }
+
+
 }

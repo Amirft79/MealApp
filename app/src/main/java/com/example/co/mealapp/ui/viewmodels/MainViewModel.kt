@@ -8,4 +8,6 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(private val repository:MainRepository):ViewModel() {
     fun getCategories()=repository.getCategories()
+
+    fun getSearchedMeals(searchedText:String)=repository.getSearchedMeals(searchedText)
 }

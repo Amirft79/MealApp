@@ -5,4 +5,9 @@
     <string name="categories">Categories</string>
     <string name="search_meal">Search Meal</string>
     <string name="meal_category">Meal Category</string>
+    <string name="searchformeal">SearchForMeal</string>
+    <string name="search">Search</string>
+    <string name="btn_search">Search</string>
+    <string name="find_your_meal">find your meal</string>
+    <string name="no_meals_found">No Meals Found</string>
 </resources>
