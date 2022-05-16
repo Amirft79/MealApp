@@ -10,4 +10,24 @@
     <string name="btn_search">Search</string>
     <string name="find_your_meal">find your meal</string>
     <string name="no_meals_found">No Meals Found</string>
+    <string name="show_profile">show profile</string>
+    <string name="username">Username</string>
+    <string name="foods">Foods</string>
+    <string name="communicate">Communicate</string>
+    <string name="sendemail">SendEmail</string>
+    <string name="email">Email</string>
+    <string name="retry_again">Retry Again</string>
+    <string name="password">Password</string>
+    <string name="submit">submit</string>
+    <string name="TVUsername">USERNAME</string>
+    <string name="login">Login</string>
+    <string name="use_your_finger">use your finger</string>
+    <string name="signin">SignIn</string>
+    <string name="introText">for better experience of searching your meal and food you can signIn account in our app</string>
+
+    <string-array name="user_category">
+        <item>vegetarian</item>
+        <item>FastFood</item>
+        <item>vegan</item>
+    </string-array>
 </resources>

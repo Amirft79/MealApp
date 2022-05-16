@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3e4045"
+    tools:context=".ui.SplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/iv_Cucktus"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/cactus"
+        android:layout_marginTop="28dp">
+    </ImageView>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="48dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bake_bread_fast_food_pizza_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_Cucktus"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@id/iv_Cucktus"
+        app:layout_constraintTop_toBottomOf="@id/iv_Cucktus">
+    </ImageView>
+
+    <com.tuyenmonkey.mkloader.MKLoader
+        android:id="@+id/loader"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/iv_Cucktus"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="@id/iv_Cucktus"
+        app:layout_constraintTop_toBottomOf="@id/iv_Cucktus"
+        app:layout_constraintVertical_bias="0.57"
+        app:mk_color="@color/green_700"
+        app:mk_type="TwinFishesSpinner">
+    </com.tuyenmonkey.mkloader.MKLoader>
+
+    <Button
+        android:id="@+id/btn_check_internet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/loader"
+        app:layout_constraintEnd_toEndOf="@id/loader"
+        app:layout_constraintTop_toBottomOf="@id/loader"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="invisible"
+        android:text="@string/retry_again">
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:title="@string/search_meal"
-        android:id="@+id/Main_Search_Fragment"
-        android:icon="@drawable/ic_baseline_search_24">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/Main_Search_Fragment"
+            android:icon="@drawable/ic_baseline_search_24"
+            android:title="@string/search_meal">
+        </item>
+        <item
+            android:id="@+id/categoriesListFragment"
+            android:icon="@drawable/ic_baseline_fastfood_24"
+            android:title="@string/meal_category">
+        </item>
+
+    </group>
+    <item android:title="@string/communicate">
+        <menu>
+            <item android:title="@string/email"
+                android:id="@+id/send_email"
+                android:icon="@drawable/ic_baseline_email_24">
+            </item>
+
+        </menu>
     </item>
-    <item
-        android:title="@string/meal_category"
-        android:id="@+id/categoriesListFragment"
-        android:icon="@drawable/ic_baseline_fastfood_24">
-    </item>
+
+
+
 
 </menu>

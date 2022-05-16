@@ -68,7 +68,6 @@ class MainSearchFragment : Fragment() {
     }
 
     private fun initVars(){
-        showKeyboard(requireContext(),binding.searchedEditText)
         searchedMealAdapter= SearchedMealsAdapter(requireContext())
 
     }
@@ -77,29 +76,11 @@ class MainSearchFragment : Fragment() {
     private fun searchAction(){
         binding.searchedEditText.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                mainViewModel.getSearchedMeals(p0.toString()).observe(viewLifecycleOwner){
-                    when(it.status){
-                        Status.LOADING->{
-                            binding.searchProgress.show()
-                            binding.view.show()
-                        }
-                        Status.SUCCESS->{
-                            val mealsList=it.data
-                            binding.noMealsText.showIf {
-                                mealsList==null
-                            }
-                            searchedMealAdapter.submitList(mealsList)
-                            binding.searchProgress.hide()
-                            binding.view.hide()
-                        }
-                        Status.FAIL -> {
-                            Toast.makeText(requireContext(),"failed get data ", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
+                getDataFromViewModel(p0.toString())
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -120,6 +101,28 @@ class MainSearchFragment : Fragment() {
     }
 
 
+    private fun getDataFromViewModel(mealStr:String){
+        mainViewModel.getSearchedMeals(mealStr).observe(viewLifecycleOwner){
+            when(it.status){
+                Status.LOADING->{
+                    binding.searchProgress.show()
+                    binding.view.show()
+                }
+                Status.SUCCESS->{
+                    val mealsList=it.data
+                    binding.noMealsText.showIf {
+                        mealsList==null
+                    }
+                    searchedMealAdapter.submitList(mealsList)
+                    binding.searchProgress.hide()
+                    binding.view.hide()
+                }
+                Status.FAIL -> {
+                    Toast.makeText(requireContext(),"failed get data ", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
 
 
 
