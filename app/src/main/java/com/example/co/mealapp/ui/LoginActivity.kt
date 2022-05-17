@@ -62,9 +62,11 @@ class LoginActivity : AppCompatActivity() {
            makeUserFinger()
         }
         userPref=getSharedPreferences("userConfiguration",0)
-        binding.tvUserName.text=userPref.getString("userName","USERNAME_NOT_FOUND")
-        signIn()
-
+        binding.tvUserName.text=userPref.getString("userConfigName","USERNAME_NOT_FOUND")
+        binding.btnUseSignInDialog.setOnClickListener {
+            signIn()
+        }
+        loginOptions()
 
     }
 
@@ -105,6 +107,8 @@ class LoginActivity : AppCompatActivity() {
                 }).build()
         biometricPrompt.authenticate(getcancelationsignal(),mainExecutor,AutenticationCallback)
     }
+
+    //singIN
     private fun signIn(){
         val editor:SharedPreferences.Editor=userPref.edit()
         val dialogBinding:SigninDialogLayoutBinding= SigninDialogLayoutBinding.inflate(layoutInflater)
@@ -112,24 +116,48 @@ class LoginActivity : AppCompatActivity() {
             setContentView(dialogBinding.root)
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialogBinding.btnSubmit.setOnClickListener {
-                if (dialogBinding.inputUserName.text.isEmpty()||dialogBinding.inputPassword.text.isEmpty()){
-                    showSnack(dialogBinding.root,"please enter your user and passWord")
+                if (dialogBinding.inputUserName.text.isEmpty() || dialogBinding.inputPassword.text.isEmpty()) {
+                    showSnack(dialogBinding.root, "please enter your user and passWord")
 
-                }
-                else{
-                    editor.putString("userName",dialogBinding.inputUserName.text.toString())
-                    editor.putString("passWord",dialogBinding.inputPassword.text.toString())
-                    isLogin=true
-                    editor.putBoolean("isLogin",isLogin)
+                } else {
+                    editor.putString("userConfigName", dialogBinding.inputUserName.text.toString())
+                    editor.putString("passWord", dialogBinding.inputPassword.text.toString())
+                    isLogin = true
+                    editor.putBoolean("isLogin", isLogin)
                     editor.apply()
-                    binding.signCard.visibility= View.GONE
+                    binding.signCard.visibility = View.GONE
+                    binding.tvUserName.text = userPref.getString("userConfigName", "USER_NOT_FOUND")
                     dismiss()
                 }
-                show()
-
             }
+            show()
+
         }
 
 
+
+    }
+
+    private fun loginOptions(){
+        isLogin=userPref.getBoolean("isLogin",false)
+        if (isLogin) binding.signCard.visibility=View.GONE
+
+        binding.btnSubmit.setOnClickListener {
+            if (binding.inputLoginPassword.text.isEmpty()){
+                binding.inputLoginPassword.setError("please enter your password")
+                binding.btnSubmit.isEnabled=false
+            }
+            else{
+                 if (binding.inputLoginPassword.text.toString()==userPref.getString("passWord","NOT_FOUND")){
+                     val intent=Intent(this,MainActivity::class.java)
+                     startActivity(intent)
+                     showSnack(binding.root,"welcome !!!")
+                 }
+                else{
+                    showSnack(binding.root,"your password is incorrect")
+                 }
+
+            }
+        }
     }
 }
