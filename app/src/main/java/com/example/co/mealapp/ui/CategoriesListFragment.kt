@@ -10,8 +10,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.co.mealapp.R
+import com.example.co.mealapp.Utils.NetworkHelper
 import com.example.co.mealapp.Utils.Status
 import com.example.co.mealapp.Utils.showIf
+import com.example.co.mealapp.Utils.showSnack
 import com.example.co.mealapp.dataModels.Category
 import com.example.co.mealapp.databinding.CategoriesListBinding
 import com.example.co.mealapp.databinding.FragmentCategoriesListBinding
@@ -51,8 +53,28 @@ class CategoriesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initVars()
-        getCategories()
+
+        if(NetworkHelper.isNetworkConnected(requireContext())){
+            initVars()
+            getCategories()
+        }
+        else{
+            requireContext().showSnack(binding.root,"Check your Internet Connection",5000)
+            binding.btnCategoryCheckNet.visibility=View.VISIBLE
+            binding.btnCategoryCheckNet.setOnClickListener {
+                if (NetworkHelper.isNetworkConnected(requireContext())){
+                    initVars()
+                    getCategories()
+                    binding.btnCategoryCheckNet.visibility=View.INVISIBLE
+                }
+                else{
+                    requireContext().showSnack(binding.root,"Check your Internet Connection",5000)
+                }
+            }
+        }
+
+
+
 
     }
 

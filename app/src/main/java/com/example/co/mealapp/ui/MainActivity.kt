@@ -67,6 +67,9 @@ class MainActivity : AppCompatActivity(){
                 if (destination.id == R.id.Search_Result_Fragment) {
                     binding.navigateToolbar.title = "SearchResult"
                 }
+                if (destination.id==R.id.searchResultFragment){
+                    binding.navigateToolbar.title="SearchResult"
+                }
                     navigationHeaderOneListener(this)
             }
 

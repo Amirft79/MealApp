@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
@@ -49,7 +50,7 @@ class CategoriesAdapter(val context:Context):ListAdapter<Category,CategoriesAdap
 
 
 
-    //for donot show same item
+    //for do not show same item
     class MealsListDiffUtil : DiffUtil.ItemCallback<Category>() {
         override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
             return oldItem.idCategory == newItem.idCategory

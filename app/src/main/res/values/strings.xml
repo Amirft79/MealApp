@@ -24,6 +24,9 @@
     <string name="use_your_finger">use your finger</string>
     <string name="signin">SignIn</string>
     <string name="introText">for better experience of searching your meal and food you can signIn account in our app</string>
+    <string name="instructions">Instructions</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="youtube">YouTube</string>
 
     <string-array name="user_category">
         <item>vegetarian</item>

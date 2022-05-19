@@ -144,4 +144,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn_check_net_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/retry_again"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/no_meals_text"
+        app:layout_constraintVertical_bias="0.199">
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

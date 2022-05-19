@@ -52,6 +52,7 @@ class MainSearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding= MainSearchFragmentBinding.inflate(inflater,container,false)
+
         return binding.root
 
 
@@ -65,6 +66,8 @@ class MainSearchFragment : Fragment() {
         initVars()
         searchAction()
         initSearchedMealsAdapter()
+
+
     }
 
     private fun initVars(){

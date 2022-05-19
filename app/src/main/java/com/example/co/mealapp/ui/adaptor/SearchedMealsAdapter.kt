@@ -41,7 +41,7 @@ class SearchedMealsAdapter(val context: Context):
         Glide.with(context).load(searchedMealImageUrl).into(holder.binding.ivSearchedMeals)
         holder.binding.mealsCard.setOnClickListener {
             navController=Navigation.findNavController(it)
-            val action=MainSearchFragmentDirections.actionMainFragmentToSearchResultFragment()
+            val action=MainSearchFragmentDirections.actionMainFragmentToSearchResultFragment(meal.idMeal,null)
             navController.navigate(action)
         }
     }

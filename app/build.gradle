@@ -81,13 +81,10 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:2.40"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
-    //photoview
-  //  implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    //
 
 
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
-    //main
+
+//main
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.6.0'

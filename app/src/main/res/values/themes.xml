@@ -28,5 +28,8 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
-
+    <style name="AppBarLayoutTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/green_700</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
 </resources>
