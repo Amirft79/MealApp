@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/app_drawer"
+
     tools:context=".ui.MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -52,7 +53,9 @@
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:background="@drawable/navigation_view_background"
         android:layout_gravity="start"
+
         app:itemShapeAppearance="@drawable/search_box_bak"
         app:headerLayout="@layout/navigation_drawer_header_layout"
         app:menu="@menu/menu_drawer">

@@ -17,7 +17,7 @@
     </group>
     <item android:title="@string/communicate">
         <menu>
-            <item android:title="@string/email"
+            <item android:title="@string/contactMe"
                 android:id="@+id/send_email"
                 android:icon="@drawable/ic_baseline_email_24">
             </item>

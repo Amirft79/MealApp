@@ -3,25 +3,28 @@ package com.example.co.mealapp.ui
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.net.Uri
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.example.co.mealapp.R
 import com.example.co.mealapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
@@ -70,17 +73,26 @@ class MainActivity : AppCompatActivity(){
                 if (destination.id==R.id.searchResultFragment){
                     binding.navigateToolbar.title="SearchResult"
                 }
-                    navigationHeaderOneListener(this)
+
             }
-
-
-
-
-
+        navigationHeaderOneListener(this)
         binding.bottomNavView.setupWithNavController(navController)
+        binding.navigationView.setNavigationItemSelectedListener {item->
+            drawerLayout.closeDrawer(GravityCompat.START)
+            when(item.itemId){
+                R.id.send_email -> {
+                    startActivity(Intent(
+                        Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/amirhossein-fardi-6b7403216/")
+                    ))
+                    return@setNavigationItemSelectedListener true
+                }
+                else  -> NavigationUI.onNavDestinationSelected(item, navController)
+            }
+        }
 
 
     }
+
 
     override fun onPause() {
         super.onPause()
@@ -104,29 +116,34 @@ class MainActivity : AppCompatActivity(){
         val headerView: View = binding.navigationView.getHeaderView(0)
         headerView.findViewById<TextView?>(R.id.tv_user_name).text=preference.getString("user_Category","NOT_FOUND")
     headerView.findViewById<TextView?>(R.id.tv_user_name).setOnClickListener {
-            val dialog=AlertDialog.Builder(this)
-                 dialog.apply {
-                     setTitle("your Category")
-                     setSingleChoiceItems(listItems,listItems.indexOf(preference.getString("user_Category","FastFood"))){dialog,which->
-                         editor.putString("user_Category",listItems[which])
-                         Toast.makeText(context,"category you chose is : ${listItems[which]}",Toast.LENGTH_LONG).show()
-                         editor.apply()
-                         }
-                     setPositiveButton("Submit",DialogInterface.OnClickListener { dialogInterface, i ->
-                         headerView.findViewById<TextView?>(R.id.tv_user_name).text=preference.getString("user_Category","Notfound")
-                     })
-                     setNegativeButton("Cancel",DialogInterface.OnClickListener { dialogInterface, i ->
-                        dialogInterface.dismiss()
-                     })
-                     setCancelable(false)
-                     create().show()
-                 }
-           
-
+        val dialog = AlertDialog.Builder(this)
+        dialog.apply {
+            setTitle("your Category")
+            setSingleChoiceItems(
+                listItems,
+                listItems.indexOf(preference.getString("user_Category", "FastFood"))
+            ) { dialog, which ->
+                editor.putString("user_Category", listItems[which])
+                Toast.makeText(
+                    context,
+                    "category you chose is : ${listItems[which]}",
+                    Toast.LENGTH_LONG
+                ).show()
+                editor.apply()
+            }
+            setPositiveButton("Submit", DialogInterface.OnClickListener { dialogInterface, i ->
+                headerView.findViewById<TextView?>(R.id.tv_user_name).text =
+                    preference.getString("user_Category", "Notfound")
+            })
+            setNegativeButton("Cancel", DialogInterface.OnClickListener { dialogInterface, i ->
+                dialogInterface.dismiss()
+            })
+            setCancelable(false)
+            create().show()
         }
+
+
     }
-
-
-
+    }
 
 }

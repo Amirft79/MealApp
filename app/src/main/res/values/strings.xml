@@ -5,7 +5,7 @@
     <string name="categories">Categories</string>
     <string name="search_meal">Search Meal</string>
     <string name="meal_category">Meal Category</string>
-    <string name="searchformeal">SearchForMeal</string>
+    <string name="searchForMeal">SearchForMeal</string>
     <string name="search">Search</string>
     <string name="btn_search">Search</string>
     <string name="find_your_meal">find your meal</string>
@@ -14,7 +14,7 @@
     <string name="username">Username</string>
     <string name="foods">Foods</string>
     <string name="communicate">Communicate</string>
-    <string name="sendemail">SendEmail</string>
+    <string name="sendEmail">SendEmail</string>
     <string name="email">Email</string>
     <string name="retry_again">Retry Again</string>
     <string name="password">Password</string>
@@ -22,11 +22,12 @@
     <string name="TVUsername">USERNAME</string>
     <string name="login">Login</string>
     <string name="use_your_finger">use your finger</string>
-    <string name="signin">SignIn</string>
+    <string name="signIn">SignIn</string>
     <string name="introText">for better experience of searching your meal and food you can signIn account in our app</string>
     <string name="instructions">Instructions</string>
     <string name="ingredients">Ingredients</string>
     <string name="youtube">YouTube</string>
+    <string name="contactMe">ContactMe</string>
 
     <string-array name="user_category">
         <item>vegetarian</item>

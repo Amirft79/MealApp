@@ -119,7 +119,7 @@
              android:layout_gravity="center"
              android:layout_marginTop="30dp"
              app:cornerRadius="10dp"
-             android:text="@string/signin">
+             android:text="@string/signIn">
          </com.google.android.material.button.MaterialButton>
       </LinearLayout>
 
